@@ -1,4 +1,4 @@
-# generator-base-android-kotlin [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
+# generator-base-android-kotlin
 > Generator base android project with kotlin
 
 ## Installation
@@ -7,13 +7,22 @@ First, install [Yeoman](http://yeoman.io) and generator-base-android-kotlin usin
 
 ```bash
 npm install -g yo
-npm install -g generator-base-android-kotlin
 ```
-
+move to project directory
+```bash
+npm link
+```
 Then generate your new project:
 
 ```bash
-yo base-android-kotlin
+yo generator-base-android-kotlin
+```
+
+This generator will use the code from [here](https://github.com/pratamawijaya/BaseKotlinAndroid)
+
+update repository
+```bash
+node generators/app/sync_template_kotlin.js
 ```
 
 ## Getting To Know Yeoman
@@ -23,14 +32,5 @@ yo base-android-kotlin
  * Yeoman can be too opinionated at times but is easily convinced not to be.
  * Feel free to [learn more about Yeoman](http://yeoman.io/).
 
-## License
-
-MIT © [pratamawijaya](pratamawijaya.com)
-
-
-[npm-image]: https://badge.fury.io/js/generator-base-android-kotlin.svg
-[npm-url]: https://npmjs.org/package/generator-base-android-kotlin
-[travis-image]: https://travis-ci.org/pratamawijaya/generator-base-android-kotlin.svg?branch=master
-[travis-url]: https://travis-ci.org/pratamawijaya/generator-base-android-kotlin
-[daviddm-image]: https://david-dm.org/pratamawijaya/generator-base-android-kotlin.svg?theme=shields.io
-[daviddm-url]: https://david-dm.org/pratamawijaya/generator-base-android-kotlin
+## Maintained
+Pratama Nur Wijaya
