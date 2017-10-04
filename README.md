@@ -34,3 +34,6 @@ node generators/app/sync_template_kotlin.js
 
 ## Maintained
 Pratama Nur Wijaya
+
+## Forked From
+[https://github.com/androidstarters/generator-kotlin-android](https://github.com/androidstarters/generator-kotlin-android)
