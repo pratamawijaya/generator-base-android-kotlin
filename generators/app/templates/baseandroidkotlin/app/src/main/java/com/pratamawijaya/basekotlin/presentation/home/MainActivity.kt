@@ -10,6 +10,7 @@ import com.github.ajalt.timberkt.d
 import com.github.nitrico.lastadapter.LastAdapter
 import <%= appPackage %>.BR
 import <%= appPackage %>.R
+import <%= appPackage %>.data.PreferencesManager
 import <%= appPackage %>.di.component.ActivityComponent
 import <%= appPackage %>.entity.Hero
 import <%= appPackage %>.presentation.base.BaseInjectedActivity
@@ -19,6 +20,8 @@ class MainActivity : BaseInjectedActivity(), MainView {
 
     @Inject
     lateinit var presenter: MainPresenter
+    @Inject
+    lateinit var prefManager: PreferencesManager
 
     @BindView(R.id.rvMain)
     lateinit var rvMain: RecyclerView
@@ -32,6 +35,8 @@ class MainActivity : BaseInjectedActivity(), MainView {
 
         presenter.attachView(this)
         presenter.getHeroes()
+
+        prefManager.saveString(PreferencesManager.PREF_USERNAME, "hello")
 
     }
 
