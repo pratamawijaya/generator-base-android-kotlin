@@ -53,11 +53,11 @@ module.exports = Generator.extend({
 
     mkdirp('app');
     mkdirp('app/src/main/assets');
-    mkdirp('app/src/main/kotlin/' + packageDir);
-    mkdirp('app/src/androidTest/kotlin/' + packageDir);
-    mkdirp('app/src/commonTest/kotlin/' + packageDir);
+    mkdirp('app/src/main/java/' + packageDir);
+    mkdirp('app/src/androidTest/java/' + packageDir);
+    mkdirp('app/src/commonTest/java/' + packageDir);
     mkdirp('app/src/test/resources');
-    mkdirp('app/src/test/kotlin/' + packageDir);
+    mkdirp('app/src/test/java/' + packageDir);
 
     var appPath = this.sourceRoot() + '/' + appFolder + '/';
 
@@ -89,10 +89,10 @@ module.exports = Generator.extend({
 
     this.fs.copyTpl(appPath + 'README.md', 'README.md', this.props);
     this.fs.copyTpl(appPath + 'app/build.gradle', 'app/build.gradle', this.props);
-    this.fs.copyTpl(appPath + 'app/src/androidTest/kotlin/com/pratamawijaya/basekotlin', 'app/src/androidTest/kotlin/' + packageDir, this.props);
+    this.fs.copyTpl(appPath + 'app/src/androidTest/java/com/pratamawijaya/basekotlin', 'app/src/androidTest/java/' + packageDir, this.props);
     this.fs.copyTpl(appPath + 'app/src/main/AndroidManifest.xml', 'app/src/main/AndroidManifest.xml', this.props);
-    this.fs.copyTpl(appPath + 'app/src/main/kotlin/com/pratamawijaya/basekotlin', 'app/src/main/kotlin/' + packageDir, this.props);
+    this.fs.copyTpl(appPath + 'app/src/main/java/com/pratamawijaya/basekotlin', 'app/src/main/java/' + packageDir, this.props);
     this.fs.copyTpl(appPath + 'app/src/main/res/layout', 'app/src/main/res/layout', this.props);
-    this.fs.copyTpl(appPath + 'app/src/test/kotlin/com/pratamawijaya/basekotlin', 'app/src/test/kotlin/' + packageDir, this.props);
+    this.fs.copyTpl(appPath + 'app/src/test/java/com/pratamawijaya/basekotlin', 'app/src/test/java/' + packageDir, this.props);
   }
 });
