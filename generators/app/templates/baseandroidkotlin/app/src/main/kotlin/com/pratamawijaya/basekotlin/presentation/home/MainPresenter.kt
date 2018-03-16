@@ -5,9 +5,7 @@ import com.github.ajalt.timberkt.e
 import <%= appPackage %>.data.PreferencesManager
 import <%= appPackage %>.data.repository.HeroRepository
 import <%= appPackage %>.presentation.base.BasePresenter
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.disposables.CompositeDisposable
-import io.reactivex.schedulers.Schedulers
+import <%= appPackage %>.utils.RxUtils
 import javax.inject.Inject
 
 /**
@@ -16,22 +14,20 @@ import javax.inject.Inject
 class MainPresenter @Inject constructor(private val repo: HeroRepository,
                                         private val preferencesManager: PreferencesManager) : BasePresenter<MainView>() {
 
-    private var compositeSub = CompositeDisposable()
-
     /**
      * get dota 2 heroes list
      */
     fun getHeroes() {
-
+        mView?.showLoading()
         preferencesManager.setUserLogin(true)
-
-        compositeSub.add(repo.getHeroes()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
+        compositeDisposable.add(repo.getHeroes()
+                .compose(RxUtils.applyObservableAsync())
                 .subscribe({ result ->
+                    mView?.hideLoading()
                     d { "hasilnya adalah" }
                     mView?.displayHeroes(result)
                 }, { error ->
+                    mView?.hideLoading()
                     e { "error ${error.localizedMessage}" }
                 }))
     }
